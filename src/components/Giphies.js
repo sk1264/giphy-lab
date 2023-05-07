@@ -1,44 +1,46 @@
 import { useState } from "react";
+import Giphy from "./Giphy";
 
-function Giphies () {
-    const [giphies, setGiphies] = useState([{
-        giphy: "happy"
-    }]);
-    const [giphyForm, setGiphyForm] = useState(
-        {
-            giphy: ""
-        }
-    )
+function Giphies ({ giphies, setGiphies }) {
+    const [giphyForm, setGiphyForm] = useState({
+        giphy: ""
+    });
 
-        function handleChange(e) {
-            console.log(e.target)
-            setGiphyForm((previousFormState) => ({
-                ...previousFormState,
-                [e.target.giphy]: e.target.value
-            }))
-        }
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setGiphyForm((previousFormState) => ({
+            ...previousFormState,
+            [name]: value
+        }));
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        setGiphies([giphyForm]);
+        setGiphyForm({ giphy: "" });
+    }
 
     return (
         <>
-            <h2></h2>
-            {giphies.map((giphy, index) => {
-                return(
-                    <div key={index}>
-                        {/* <h2>Giphy: {giphy.giphy}</h2> */}
-                    </div>
-                )
-            })}
-            <form>
+                <form onSubmit={handleSubmit}>
                 <label>
                     <span></span>
                     <input
-                        placeholder="type of giphy"
-                        giphy="giphy"
+                        type="text"
+                        name="giphy"
+                        value={giphyForm.giphy}
                         onChange={handleChange} 
                     />
                 </label>
-
+                <button type="submit">Submit</button>
             </form>
+            {giphies.map((giphy, index) => {
+                return(
+                    <div key={index}>
+                        <Giphy giphy={giphy} />
+                    </div>
+                )
+            })}
         </>
     )
 }
