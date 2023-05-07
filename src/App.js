@@ -9,7 +9,6 @@ function App() {
   return (
     <div className="container">
     <div className="App">
-      <h1>Giphy</h1>
     </div>
     <Giphies giphies={giphies} setGiphies={setGiphies} />
     </div>

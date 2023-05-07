@@ -21,7 +21,7 @@ function Giphies ({ giphies, setGiphies }) {
     }
 
     return (
-        <>
+            <div><h1>Giphy</h1>
                 <form onSubmit={handleSubmit}>
                 <label>
                     <span></span>
@@ -41,7 +41,7 @@ function Giphies ({ giphies, setGiphies }) {
                     </div>
                 )
             })}
-        </>
+        </div>
     )
 }
 
