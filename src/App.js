@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { Grid } from '@giphy/react-components'
+import { GiphyFetch } from '@giphy/js-fetch-api'
+import Giphies from './components/Giphies';
 
 function App() {
+  const [giphies, setGiphies] = useState(0)
+
+  function updateGiphies  () {
+    let currentGiphies = giphies;
+    currentGiphies++;
+    setGiphies(currentGiphies)
+  }
   return (
+    <div className="container">
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Giphy</h1>
+    </div>
+    <Giphies />
+    <button onClick={updateGiphies}>Submit</button>
     </div>
   );
 }
