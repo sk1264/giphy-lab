@@ -1,3 +1,9 @@
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -45,23 +51,17 @@
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
-h1 {
+.h1 {
   text-align: center;
   font-weight: bold;
 }
 
 
-.form {
-  display: block;
-  margin-top: 0em;
-}
-
 img {
+  padding: 30px;
   overflow-clip-margin: content-box;
   overflow: clip;
 }
